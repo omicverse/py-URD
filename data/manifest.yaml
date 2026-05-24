@@ -1,0 +1,27 @@
+package: pyurd
+version: 0.1.0
+upstream:
+  name: URD
+  version: 1.1.1
+  source: https://github.com/farrellja/URD
+algorithm_class: stochastic
+fixture:
+  path: data/fixture_guo_expression.csv
+  description: |
+    Guo et al. 2010 qPCR fixture from destiny (428 cells × 48 genes).
+    Diffusion-map computed with destiny in R, used as input to floodPseudotime.
+reference_command: tests/r_reference_driver.R
+candidate_command: tests/_run_candidate.py
+outputs:
+  - name: pseudotime
+    metric: spearman
+    threshold: 0.80
+    class: ordinal
+    notes: |
+      floodPseudotime is stochastic but averages over 50 simulations, so the
+      mean ordering is highly stable.  Spearman ≥ 0.80 between R and Python
+      pseudotimes on Guo (n=428) demonstrates algorithmic equivalence.
+parity_runs:
+  n_simulations: 50
+  root_cell_indices: 0..15  # first 16 cells (Guo 16-cell timepoint)
+  random_seed: 42

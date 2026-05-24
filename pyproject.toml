@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyurd-bio"
+version = "0.1.0"
+description = "Pure-Python port of URD — branching pseudotime / tree inference (Farrell et al. Science 2018)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Zehua Zeng", email = "starlitnightly@163.com" }]
+keywords = ["single-cell", "scRNA-seq", "pseudotime", "trajectory", "branching", "URD"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = ["numpy>=1.23", "scipy>=1.10", "pandas>=1.5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+diffmap = ["pydestiny-bio"]
+
+[project.urls]
+Homepage = "https://github.com/omicverse/py-URD"
+Repository = "https://github.com/omicverse/py-URD"
+"Upstream R package" = "https://github.com/farrellja/URD"
+
+[tool.setuptools.packages.find]
+include = ["pyurd*"]
+exclude = ["tests*", "examples*", "URD-ref*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::RuntimeWarning"]

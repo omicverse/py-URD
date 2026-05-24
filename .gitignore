@@ -5,9 +5,7 @@ build/
 dist/
 .pytest_cache/
 .ipynb_checkpoints/
+URD-ref/
 destiny-ref/
 data/_sidecar_*.csv
-data/reference_output.json
-data/candidate_output.json
-data/fixture_*_*.csv
 .coverage

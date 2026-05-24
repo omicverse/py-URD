@@ -12,7 +12,7 @@ navigation deferred to v0.2.
 
 from __future__ import annotations
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from .urd import URD, createURD
 from .flood import (
@@ -22,6 +22,7 @@ from .flood import (
     floodPseudotimeProcess,
 )
 from .random_walk import simulateRandomWalksFromTips, processRandomWalks
+from .plotting import plotDim, plotPseudotime, plotVisitFrequency
 
 __all__ = [
     "URD",
@@ -32,5 +33,8 @@ __all__ = [
     "floodPseudotimeProcess",
     "simulateRandomWalksFromTips",
     "processRandomWalks",
+    "plotDim",
+    "plotPseudotime",
+    "plotVisitFrequency",
     "__version__",
 ]

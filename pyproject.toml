@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyurd-bio"
-version = "0.1.0"
+version = "0.2.0"
 description = "Pure-Python port of URD — branching pseudotime / tree inference (Farrell et al. Science 2018)."
 readme = "README.md"
 requires-python = ">=3.9"
